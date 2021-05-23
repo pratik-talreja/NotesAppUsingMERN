@@ -23,5 +23,16 @@
 		res.send(response.data);
 
 	});
+	
+	app.patch("/editNote",async (req,res) =>{
+		console.log(req.body);
+		let condition_id ={"_id": req.body.id};
+		await noteModel.findOneAndUpdate({_id: req.body._id},{title:req.body.title,content:req.body.content},function (){
+			res.send("Success");
+		});
+	
+		
+	});
+		
 
  };

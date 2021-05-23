@@ -50,6 +50,26 @@ function App() {
       });
     });
   }
+  
+  async function editNote(editedNote){
+	  console.log("Here");
+	  const p = await axios({
+		  method:"patch",
+		  url:"http://localhost:6969/editNote",
+		  data:{
+			  _id:editedNote.id,
+			  title:editedNote.title,
+			  content:editedNote.content
+		  }
+		  
+	  });
+	  
+	  const newNotes = await axios.get("http://localhost:6969/getNotes");
+	setNotes(newNotes.data);
+
+	  
+	  
+  }
 
   return (
     <div>
@@ -64,6 +84,7 @@ function App() {
             title={noteItem.title}
             content={noteItem.content}
             onDelete={deleteNote}
+			onEdit = {editNote}
           />
         );
       })}
