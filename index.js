@@ -21,7 +21,7 @@ app.get("/home", (req, res) => {
 
 async function main() {
   const uri =
-    "mongodb+srv://pratik_talreja:sbmAMSE8R36eebF0@cluster0.cxhwh.mongodb.net/Test2NotesDatabase?retryWrites=true&w=majority";
+    "mongodb+srv://pratik_talreja:<password>@cluster0.cxhwh.mongodb.net/Test2NotesDatabase?retryWrites=true&w=majority";
   mongoose
     .connect(uri, {
       useNewUrlParser: true,
